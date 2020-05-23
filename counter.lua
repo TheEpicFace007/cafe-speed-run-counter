@@ -5,9 +5,9 @@ function create_bg(props)
     local height = props.height
 
     return Roact.createElement("Frame", {
-        BackgroundColor3 = Color3.fromRGB(40, 53, 147);
+        BackgroundColor3 = Color3.fromRGB(114, 114, 114);
         BorderSizePixel = 2;
-        BorderColor3 = Color3.fromRGB(83, 109, 254);
+        BorderColor3 = Color3.fromRGB(209, 209, 209);
         Size = UDim2.fromScale(0.1,height);
         Position = UDim2.fromScale(0.8,0.3);
         AnchorPoint = Vector2.new(0.8,0.3)
@@ -16,7 +16,7 @@ function create_bg(props)
         AnchorPoint = Vector2.new(0.5,1);
         Position = UDim2.fromScale(0.5,0.15);
         BackgroundTransparency = 0;
-        BackgroundColor3 = Color3.fromRGB(83, 109, 254);
+        BackgroundColor3 = Color3.fromRGB(59, 59, 59);
         -- text part
         Text = "cafe speedrun time-meter";
         Font = Enum.Font.GothamBold;
