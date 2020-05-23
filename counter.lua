@@ -14,7 +14,7 @@ function create_bg(props)
     }, {
     Title = Roact.createElement("TextLabel", {
         AnchorPoint = Vector2.new(0.5,1);
-        Position = UDim2.fromScale(0.5,0.15);
+        Position = UDim2.fromScale(0.5,0.05);
         BackgroundTransparency = 0;
         BackgroundColor3 = Color3.fromRGB(59, 59, 59);
         -- text part
@@ -53,12 +53,30 @@ function button(props)
     })
 end
 
+function cat_desc(props)
+    local desc = props.desc;
+    local y_pos = props.y_pos
 
+    return Roact.createElement("TextLabel",{
+        Size = UDim2.fromScale(1,0.1);
+        Position = UDim2.fromScale(0.5,y_pos);
+        AnchorPoint = Vector2.new(0.5,0.5);
+
+        BackgroundColor3 = Color3.fromRGB(65, 65, 65);
+        Text = desc;
+        TextColor3 = Color3.new(1,1,1);
+        TextScaled = true;
+        Font = Enum.Font.Gotham
+    })
+end
 
 main = Roact.createElement("ScreenGui",{},{
     Roact.createElement(create_bg,{
         height = 0.2
     },{
+        Roact.createElement(cat_desc,{
+            desc = "Here come a hello world"
+        });
         Roact.createElement(button,{
             text = "Hello, world!";
 
