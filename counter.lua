@@ -2,12 +2,12 @@ set_thread_context(6)
 local Roact = getrenv().require(game:GetService("CorePackages")["Packages"]["_Index"]["roblox_roact"]["roact"])
 
 function create_bg(props)
-    local height = proops.height
+    local height = props.height
 
     return Roact.createElement("Frame", {
         BackgroundColor3 = Color3.fromRGB(40, 53, 147);
         BorderSizePixel = 2;
-        BorderColor3 = Color.fromRGB(83, 109, 254;
+        BorderColor3 = Color3.fromRGB(83, 109, 254);
         Size = UDim2.fromScale(0.3,height);
         Position = UDim2.fromScale(0.6,0.3);
         AnchorPoint = Vector2.new(0.8,0.3)
@@ -18,7 +18,7 @@ function create_bg(props)
         BackgroundTransparency = 0;
         BackgroundColor3 = Color3.fromRGB(83, 109, 254);
         -- text part
-        Text = "cafe speedrun";
+        Text = "cafe speedrun counter";
         Font = Enum.Font.GothamBold;
         TextSize = 36;
     }),
@@ -30,3 +30,35 @@ function create_bg(props)
     }, props[Roact.Children])
 })
 end
+
+function button(props)
+    local text = props.text
+    
+    local main_color = props.main_color
+    local secondary_color = props.secondary_color
+
+    return Roact.createElement("TextButton",{
+        Text = text;
+        BackgroundColor3 = main_color;
+        BorderSizePixel = 2;
+        BorderColor3 = secondary_color;
+
+        Size = UDim2.fromScale(1,0.2);
+        AnchorPoint = Vector2.new(0.5,0.5)
+    })
+end
+
+main = Roact.createElement("ScreenGui",{},{
+    Roact.createElement(create_bg,{
+        height = 0.4
+    },{
+        Roact.createElement(button,{
+            text = "Hello, world!";
+
+            main_color = Color3.fromRGB(203, 212, 231);
+            secondary_color = Color3.fromRGB(128, 128, 128)
+        })
+    })
+})
+
+handle = Roact.mount(main,game.Players.LocalPlayer.PlayerGui)
